@@ -1,0 +1,118 @@
+\documentclass[a4paper]{article}
+% \usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{textcomp}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\textheight=10in
+\pagestyle{empty}
+\raggedright
+\usepackage{fontawesome}
+\usepackage{hyperref}
+\usepackage[left=0.5in, right=0.4in, top=0.7in, bottom=0in]{geometry}
+
+\def\bull{\vrule height 0.8ex width .7ex depth -.1ex }
+
+\newcommand{\header} [1] {
+    {\hspace*{-18pt}\vspace*{6pt} \textsc{#1}}
+    \vspace*{-6pt} \\
+    \hspace*{-18pt} \hrulefill \\
+}
+
+\begin{document}
+\vspace*{-40pt}
+
+%==== Profile ====%
+\vspace*{-10pt}
+\begin{center}
+	{\Huge \scshape {Muhammad Muizz Zafar}}\\
+\faSend \space \href{mailto:muizzafar11@gmail.com}{muizzafar11@gmail.com} $\cdot$ 
+\faPhoneSquare \space 905-805-9142 $\cdot$
+\faLinkedinSquare \space \href{https://www.linkedin.com/in/muizz-zafar/}{linkedin.com/in/muizz-zafar} $\cdot$
+\faGithub \space \href{https://github.com/muizzzafar11}{github.com/muizzzafar11} $\cdot$
+% \faHome \space 154 Nelson Street, Ottawa, ON, K1N 7R5
+	\\
+\end{center}
+
+\vspace{-5pt}
+\begin{center}
+\textbf{Associate QA Engineer | Software Quality Assurance | Automation Testing}
+\end{center}
+
+%==== Skills ====%
+\header{Technical Skills}
+\begin{tabular}{ l l }
+Programming Languages: & C++, C\#, Python, Java, JavaScript, TypeScript, GoLang, SQL, HTML/CSS \\
+Frameworks/Tools: & NUnit, Google Test, Cypress, Jenkins, AWS, Docker, Vue.js, React, Angular, Git \\
+Testing Expertise: & QA Automation, Test Case Design, Agile Testing, Regression Testing, Defect Tracking \\
+\end{tabular}
+\vspace{2mm}
+
+%==== Work Experience ====%
+\header{Work Experience}
+\vspace{1mm}
+
+\textbf{QA Software Developer} \hfill September 2024 - Present\\
+\textit{Kinaxis Inc.} \hfill Ottawa, ON\\
+\vspace{-2mm}
+\begin{itemize} \itemsep -2pt
+    \item Conducted extensive \textbf{quality assurance testing} for the Maestro supply chain planning product, developing automated test cases using \textbf{C++ (Google Test)} and \textbf{C\# (NUnit)} frameworks.
+    \item Created and executed \textbf{functional test suites} to validate compatibility between modular and legacy systems, identifying critical mismatches using SQL-based data validation.
+    \item Documented, analyzed, and reported software defects in collaboration with developers within an \textbf{Agile QA environment}.
+    \item Integrated automated QA workflows into \textbf{Jenkins CI/CD pipelines}, enabling faster build validation and regression testing.
+    \item Partnered with cross-functional teams to define testing requirements, build test cases from feature designs, and ensure adherence to SaaS release quality standards.
+\end{itemize}
+
+\textbf{Full Stack Developer} \hfill September 2023 - August 2024\\
+\textit{University of Ottawa} \hfill Ottawa, ON\\
+\vspace{-2mm}
+\begin{itemize} \itemsep -2pt
+    \item Enhanced the University’s emergency alert website using \textbf{Laravel} and \textbf{Drupal}, improving accessibility and response speed for 20,000+ daily users.
+    \item Designed and executed \textbf{unit and end-to-end tests} using \textbf{Jasmine}, \textbf{Cypress}, and \textbf{JUnit}, validating new frontend and backend features.
+    \item Collaborated with engineering teams in an \textbf{Agile sprint cycle} to review test results, ensure feature reliability, and fix UI/API integration bugs.
+    \item Optimized SQL queries and REST APIs in Java, achieving 15-second faster data lookups across the event system.
+\end{itemize}
+
+\textbf{Cloud Developer Intern} \hfill Sep 2022 - Dec 2022 \& May 2023 - Aug 2023\\
+\textit{Trend Micro Inc.} \hfill Ottawa, ON\\
+\vspace{-2mm}
+\begin{itemize} \itemsep -2pt
+    \item Built automation for AWS-based testing environments using \textbf{GoLang}, \textbf{AWS Lambda}, and \textbf{Athena}, improving test data processing efficiency.
+    \item Configured \textbf{CloudWatch} and \textbf{Splunk} alarms to proactively detect errors, reducing false test results and downtime.
+    \item Developed and maintained automated integration tests for serverless pipelines to ensure stability of continuous releases.
+\end{itemize}
+
+\textbf{Full Stack Developer Intern} \hfill January 2022 - April 2022\\
+\textit{Applied Mind Inc.} \hfill Ottawa, ON\\
+\vspace{-2mm}
+\begin{itemize} \itemsep -2pt
+    \item Automated event detection workflows by integrating \textbf{Python}, \textbf{PostgreSQL}, and \textbf{GraphQL}, reducing manual QA verification time.
+    \item Designed real-time dashboards in \textbf{Vue.js} for better monitoring and quicker validation of production events.
+\end{itemize}
+
+\textbf{Full Stack Developer} \hfill June 2019 - June 2021\\
+\textit{Tech Under Twenty} \hfill Oakville, ON\\
+\vspace{-2mm}
+\begin{itemize} \itemsep -2pt
+    \item Created and tested RESTful APIs using \textbf{.NET Core (C\#)} for the member management system, improving stability and data validation accuracy.
+    \item Designed responsive UI components in \textbf{Angular}, performing manual testing and debugging to improve user experience.
+\end{itemize}
+
+%==== Education ====%
+\header{Education}
+\textbf{University of Ottawa}\hfill Ottawa, ON\\
+Bachelor of Applied Science, Software Engineering \textit{GPA: 3.7/4.0} \hfill September 2020 - March 2025\\
+\vspace{2mm}
+
+%==== Projects ====%
+\header{Projects}
+\vspace{1mm}
+
+{\textbf{Delta Dispenser (Delta Hacks)}} {\sl Dart, Flutter, Firebase} \hfill \href{https://devpost.com/software/pill-dispenser-reminder-2000}{devpost.com/delta-dispenser}\\
+\begin{itemize} \itemsep -2pt
+    \item Built a mobile app for medication tracking using Flutter and Firebase; won \textbf{1st place at DSC McMaster Challenge} among 300+ participants.
+\end{itemize}
+
+\vspace*{5mm}
+\end{document}
