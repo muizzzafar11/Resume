@@ -1,118 +1,254 @@
 \documentclass[a4paper]{article}
-% \usepackage{fullpage}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{textcomp}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\textheight=10in
-\pagestyle{empty}
-\raggedright
-\usepackage{fontawesome}
-\usepackage{hyperref}
-\usepackage[left=0.5in, right=0.4in, top=0.7in, bottom=0in]{geometry}
+    % \usepackage{fullpage}
+    \usepackage{amsmath}
+    \usepackage{amssymb}
+    \usepackage{textcomp}
+    \usepackage[utf8]{inputenc}
+    \usepackage[T1]{fontenc}
+    \textheight=10in
+    \pagestyle{empty}
+    \raggedright
+    \usepackage{fontawesome}
+    \usepackage{hyperref}
+    \usepackage[left=0.5in, right=0.4in, top=0.7in, bottom=0in]{geometry}
+
+    %\renewcommand{\encodingdefault}{cg}
+%\renewcommand{\rmdefault}{lgrcmr}
 
 \def\bull{\vrule height 0.8ex width .7ex depth -.1ex }
 
-\newcommand{\header} [1] {
-    {\hspace*{-18pt}\vspace*{6pt} \textsc{#1}}
-    \vspace*{-6pt} \\
+% DEFINITIONS FOR RESUME %%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\area} [2] {
+    \vspace*{-9pt}
+    \begin{verse}
+        \textbf{#1}   #2
+    \end{verse}
+}
+
+\newcommand{\lineunder} {
+    \vspace*{-8pt} \\
     \hspace*{-18pt} \hrulefill \\
 }
 
-\begin{document}
+\newcommand{\header} [1] {
+    {\hspace*{-18pt}\vspace*{6pt} \textsc{#1}}
+    \vspace*{-6pt} \lineunder
+}
+
+\newcommand{\employer} [3] {
+    { \textbf{#1} (#2)\\ \underline{\textbf{\emph{#3}}}\\  }
+}
+
+\newcommand{\contact} [3] {
+    \vspace*{-10pt}
+    \begin{center}
+        {\Huge \scshape {#1}}\\
+        #2 \\ #3
+    \end{center}
+    \vspace*{-8pt}
+}
+
+\newenvironment{achievements}{
+    \begin{list}
+        {$\bullet$}{\topsep 0pt \itemsep -2pt}}{\vspace*{4pt}
+    \end{list}
+}
+
+\newcommand{\schoolwithcourses} [4] {
+    \textbf{#1} #2 $\bullet$ #3\\
+    #4 \\
+    \vspace*{5pt}
+}
+
+\newcommand{\school} [4] {
+    \textbf{#1} #2 $\bullet$ #3\\
+    #4 \\
+}
+% END RESUME DEFINITIONS %%%%%%%%%%%%%%%%%%%%%%%
+
+    \begin{document}
 \vspace*{-40pt}
+
+    
 
 %==== Profile ====%
 \vspace*{-10pt}
 \begin{center}
 	{\Huge \scshape {Muhammad Muizz Zafar}}\\
-\faSend \space \href{mailto:muizzafar11@gmail.com}{muizzafar11@gmail.com} $\cdot$ 
-\faPhoneSquare \space 905-805-9142 $\cdot$
-\faLinkedinSquare \space \href{https://www.linkedin.com/in/muizz-zafar/}{linkedin.com/in/muizz-zafar} $\cdot$
-\faGithub \space \href{https://github.com/muizzzafar11}{github.com/muizzzafar11} $\cdot$
-% \faHome \space 154 Nelson Street, Ottawa, ON, K1N 7R5
+	\faSend \space \href{mailto:muizzafar11@gmail.com}{muizzafar11@gmail.com} $\cdot$ \faPhoneSquare \space 905-805-9142 $\cdot$ \faLinkedinSquare \space \href{https://www.linkedin.com/in/muizz-zafar/}{linkedin.com/in/muizz-zafar/}
+	$\cdot$  \faUser \space PRI: 70622132
 	\\
 \end{center}
 
-\vspace{-5pt}
-\begin{center}
-\textbf{Associate QA Engineer | Software Quality Assurance | Automation Testing}
-\end{center}
+\header{Security Clearance}
+\vspace{1.5mm}
 
-%==== Skills ====%
-\header{Technical Skills}
+\textbf{Secret Level Security Clearance} \hfill October 2024 - October 2034\\
+\vspace{4mm}
+
+\header{Skills}
 \begin{tabular}{ l l }
-Programming Languages: & C++, C\#, Python, Java, JavaScript, TypeScript, GoLang, SQL, HTML/CSS \\
-Frameworks/Tools: & NUnit, Google Test, Cypress, Jenkins, AWS, Docker, Vue.js, React, Angular, Git \\
-Testing Expertise: & QA Automation, Test Case Design, Agile Testing, Regression Testing, Defect Tracking \\
+	Programming Languages:        & Java, Python, GoLang, JavaScript, Kotlin, C\#, SQL, HTML/CSS, PHP, Flutter, C++\\
+	Tools/Frameworks: & AWS, Splunk, Flask, React, Vue, Angular, GraphQl, Docker, Git, Firebase, Linux \\
+ 
 \end{tabular}
 \vspace{2mm}
 
-%==== Work Experience ====%
-\header{Work Experience}
-\vspace{1mm}
+%==== Education ====%
+\header{Education}
+\textbf{University of Ottawa}\hfill Ottawa, ON\\
+Bachelor of Applied Science, Software Engineering \textit{GPA: 3.7/4.0} \hfill Sept 2020 - Dec 2024\\
+\vspace{2mm}
 
-\textbf{QA Software Developer} \hfill September 2024 - Present\\
-\textit{Kinaxis Inc.} \hfill Ottawa, ON\\
+%==== Experience ====%
+\header{Work experience}
+\vspace{1.5mm}
+
+\textbf{Software \& Database Analyst} \hfill May 2024 - Present\\
+\textit{Elections Canada} \hfill Ottawa, ON\\
 \vspace{-2mm}
 \begin{itemize} \itemsep -2pt
-    \item Conducted extensive \textbf{quality assurance testing} for the Maestro supply chain planning product, developing automated test cases using \textbf{C++ (Google Test)} and \textbf{C\# (NUnit)} frameworks.
-    \item Created and executed \textbf{functional test suites} to validate compatibility between modular and legacy systems, identifying critical mismatches using SQL-based data validation.
-    \item Documented, analyzed, and reported software defects in collaboration with developers within an \textbf{Agile QA environment}.
-    \item Integrated automated QA workflows into \textbf{Jenkins CI/CD pipelines}, enabling faster build validation and regression testing.
-    \item Partnered with cross-functional teams to define testing requirements, build test cases from feature designs, and ensure adherence to SaaS release quality standards.
+
+\item Part of the Digital Transformation team supporting modernization of legacy database systems into scalable, cloud-aligned solutions while contributing to enterprise architecture governance and technology lifecycle initiatives.
+
+\item Implemented a reusable ETL validation framework using \textbf{Python} and \textbf{Azure DevOps CI/CD pipelines}, enabling automated data validation and improving data quality assurance across multiple environments.
+
+\item Managed database ETL releases and coordinated version-controlled deployment scripts, ensuring traceability, rollback capability, and alignment with DevOps-enabled data governance practices.
+
+\item Developed automated \textbf{data validation, scoring logic, and reporting workflows} to monitor ETL data consistency and operational reliability across Oracle and SQL Server environments.
+
+\item Produced \textbf{data dashboards and performance metrics} to support internal teams with data quality monitoring and operational decision-making.
+
+\item Worked in a cross-functional \textbf{Agile team} collaborating with cloud engineers, DevOps teams, and vendors to improve infrastructure readiness and support modernization initiatives.
+
 \end{itemize}
 
-\textbf{Full Stack Developer} \hfill September 2023 - August 2024\\
+\textbf{Full Stack Developer Intern } \hfill September 2023 - April 2024\\
 \textit{University of Ottawa} \hfill Ottawa, ON\\
 \vspace{-2mm}
 \begin{itemize} \itemsep -2pt
-    \item Enhanced the University’s emergency alert website using \textbf{Laravel} and \textbf{Drupal}, improving accessibility and response speed for 20,000+ daily users.
-    \item Designed and executed \textbf{unit and end-to-end tests} using \textbf{Jasmine}, \textbf{Cypress}, and \textbf{JUnit}, validating new frontend and backend features.
-    \item Collaborated with engineering teams in an \textbf{Agile sprint cycle} to review test results, ensure feature reliability, and fix UI/API integration bugs.
-    \item Optimized SQL queries and REST APIs in Java, achieving 15-second faster data lookups across the event system.
+    \item Redesigned the University of Ottawa's emergency alert website with \textbf{C\#} and \textbf{Angular}, introducing a modern, interactive UI. Used by over \textbf{20,000} students daily.
+    \textbf{website: \href{https://ue.uottawa.ca/}{ue.uottawa.ca/}}
+    % ITS Job uottawa drupal etc
+    % \item Lead a strategic overhaul of a high-traffic emergency system website serving \textbf{50,000 users}, utilizing Laravel to fortify backend processes and advance operational reliability during critical situations. Furthermore, execute tailored feature enhancements on a \textbf{Drupal-based} website, significantly improving the digital experience for \textbf{50,000 +} students.
 \end{itemize}
 
-\textbf{Cloud Developer Intern} \hfill Sep 2022 - Dec 2022 \& May 2023 - Aug 2023\\
+
+
+\textbf{Cloud Developer Intern} \hfill May 2023 - August 2023\\
 \textit{Trend Micro Inc.} \hfill Ottawa, ON\\
 \vspace{-2mm}
 \begin{itemize} \itemsep -2pt
-    \item Built automation for AWS-based testing environments using \textbf{GoLang}, \textbf{AWS Lambda}, and \textbf{Athena}, improving test data processing efficiency.
-    \item Configured \textbf{CloudWatch} and \textbf{Splunk} alarms to proactively detect errors, reducing false test results and downtime.
-    \item Developed and maintained automated integration tests for serverless pipelines to ensure stability of continuous releases.
+    \item Utilized \textbf{AWS Lambda} to monitor client files, images and code uploaded to the cloud and scan for vulnerabilities using Anchore APIs and Grype
+        \item Programmed robust error handling for \textbf{AWS Lambda} functions in GoLang using goroutines to ensure proper timeout and recovery, reducing data corruption and improving service reliability
+	% \item Implemented \textbf{AWS Athena} to automate database creation and optimize data retrieval, resulting in a 30\% reduction in manual data processing time.
+\end{itemize}
+
+\textbf{Cloud Developer Intern} \hfill September 2022 - December 2022\\
+\textit{Trend Micro Inc.} \hfill Ottawa, ON\\
+\vspace{-2mm}
+\begin{itemize} \itemsep -2pt
+        \item Developed a serverless automation solution using \textbf{AWS Lambda, S3, and Athena crawlers} to trigger metadata updates on data changes, significantly reducing manual intervention and operational overhead
+        \item Configured \textbf{Splunk} and \textbf{AWS CloudWatch} alarms for proactive monitoring of test logs and crashes, enhancing system reliability and reporting.
+	% \item Used the \textbf{AWS Serverless} framework to add an invocation schedule to run the lambda 2 times every day which reduced the chances of the database getting filled with corrupted data
+	\item Wrote \textbf{4 integration tests} using docker to test the AWS lambda and \textbf{3 unit tests} for the new features implemented
 \end{itemize}
 
 \textbf{Full Stack Developer Intern} \hfill January 2022 - April 2022\\
 \textit{Applied Mind Inc.} \hfill Ottawa, ON\\
 \vspace{-2mm}
 \begin{itemize} \itemsep -2pt
-    \item Automated event detection workflows by integrating \textbf{Python}, \textbf{PostgreSQL}, and \textbf{GraphQL}, reducing manual QA verification time.
-    \item Designed real-time dashboards in \textbf{Vue.js} for better monitoring and quicker validation of production events.
+	\item Utilized containerization concepts to create \textbf{Docker} containers for the full- stack application for PROD deployment
+    \item Automated the event detection process by adding events to \textbf{PostgreSQL} DB using \textbf{Python} and \textbf{GraphQl} which helped reduce testing time by \textbf{10 seconds}
+    % \item Added dynamic updates to the graph, map, and notification components using \textbf{Vue} dynamic update feature and \textbf{GraphQL} subscriptions which improved UX
 \end{itemize}
 
-\textbf{Full Stack Developer} \hfill June 2019 - June 2021\\
-\textit{Tech Under Twenty} \hfill Oakville, ON\\
+% \vspace{-1mm}
+
+
+\textbf{Full Stack Developer Intern } \hfill May 2021 - August 2021\\
+\textit{University of Ottawa} \hfill Ottawa, ON\\
 \vspace{-2mm}
 \begin{itemize} \itemsep -2pt
-    \item Created and tested RESTful APIs using \textbf{.NET Core (C\#)} for the member management system, improving stability and data validation accuracy.
-    \item Designed responsive UI components in \textbf{Angular}, performing manual testing and debugging to improve user experience.
+    % \item Wrote 9 End to End tests using \textbf{Cypress}, and 25 unit tests using \textbf{Jasmine} for new APIs and features implemented on frontend and \textbf{JUnit} backend
+     \item Optimized existing \textbf{C\#} REST APIs by reducing \textbf{SQL} query execution time for event data lookup by \textbf{30 \%} and lines of code by \textbf{40 \%}
+    \item Revamped the event registration and admin webpages by using \textbf{Angular} material UI components to improve UI layout and reducing redundant lines of code by almost \textbf{50 \%}
 \end{itemize}
 
-%==== Education ====%
-\header{Education}
-\textbf{University of Ottawa}\hfill Ottawa, ON\\
-Bachelor of Applied Science, Software Engineering \textit{GPA: 3.7/4.0} \hfill September 2020 - March 2025\\
-\vspace{2mm}
+% \textbf{Full Stack Developer} \hfill June 2019 - May 2021\\
+% \textit{Tech Under Twenty} \hfill Oakville, ON\\
+% \vspace{-2mm}
+% \begin{itemize} \itemsep -2pt
+% 	\item Developed and enhanced the club management web pages for admins by using bootstrap and CSS media queries in \textbf{Angular} which helped gain \textbf{30+} new users
+% 	\item Developed RESTful APIs in \textbf{.Net Core (C\#)} for updating users information that helped improve user satisfaction. Implemented CRUD APIs for user post system that increased userbase by \textbf{10\%}	
+% \end{itemize}
 
-%==== Projects ====%
-\header{Projects}
-\vspace{1mm}
+\vspace{5mm}
 
-{\textbf{Delta Dispenser (Delta Hacks)}} {\sl Dart, Flutter, Firebase} \hfill \href{https://devpost.com/software/pill-dispenser-reminder-2000}{devpost.com/delta-dispenser}\\
-\begin{itemize} \itemsep -2pt
-    \item Built a mobile app for medication tracking using Flutter and Firebase; won \textbf{1st place at DSC McMaster Challenge} among 300+ participants.
-\end{itemize}
+% \header{Projects}
+% \vspace{1mm}
+
+% {\textbf{Hotel Room Booking System}} {\sl React, Javascript, HTML, CSS} \hfill \href{https://muizzzafar11.github.io/hotel-booking/}{hotel-booking.github.io}\\
+% % \vspace{-2mm}
+%  \begin{itemize} \itemsep -2pt
+%     \item Utilized React, Bootstrap, and Material UI to mock a hotel room booking system and improve personal UI 
+% \end{itemize}
+
+% \vspace*{-1mm}
+
+% {\textbf{Delta Dispenser (Delta Hacks)}} {\sl Dart, Flutter, Firebase} \hfill \href{https://devpost.com/software/pill-dispenser-reminder-2000}{devpost.com/delta-dispenser}\\
+
+% % \vspace{-2mm}
+%  \begin{itemize} \itemsep -2pt
+%     \item Achieved \textbf{1st place}, DSC McMaster Challenge, for effectively using GCP out of a \textbf{300+} participant Hackathon 
+%     \item Produced mobile app with \textbf{Flutter} to help caretakers manage and track pills taken by each patient
+% \end{itemize}
+
+\vspace*{-1mm}
+
+% {\textbf{Instagram Downloader}} {\sl Kotlin, Python, Firebase}
+% % \vspace{2mm}
+%  \begin{itemize} \itemsep -2pt
+%     \item Developed an android app using Kotlin and \textbf{Python} with Firebase integration, enabling automated video uploads to Instagram and YouTube. Gained \textbf{50 new followers} every week on Instagram through this app.
+% \end{itemize}
+% \vspace*{0mm}
+
+
+% \header{Extracurriculars}
+% \vspace{1mm}
+% \textbf{Electrical/Software Member} \hfill Guelph, ON\\
+% \textit{Guelph Robotics Team} \hfill Sep 2020 - Present\\
+% \vspace{-1mm}
+% \begin{itemize} \itemsep -2pt
+% 	\item Redesigned schematic/PCB to include CANBUS control which increased reliability of the Mars Rover
+% 	\item Completed embedded system exercise by using state machines to detect I/O signals without noise
+% \end{itemize}
+% \textbf{Sparbotics (F.I.R.S.T Robotics team)} \hfill Milton, ON\\
+% \textit{Analytics Lead} \hfill Oct 2019 - Jun 2020\\
+% \vspace{-1mm}
+% \begin{itemize} \itemsep 1pt
+% 	\item Delegated 12 Scouters across 200+ matches to collect data on opposing Robots during competitions
+% 	\item Created match strategies by analyzing data collected which led to us reaching finals and semi-finals
+% \end{itemize}
+% \vspace{2mm}
+% \header{Extracurriculars}
+
+% \text{Captain of Mens European footbal intramurrals team} \hfill December 2023\\
+
+% \text{Won the Best Use of Courier Award at TOHacks} \hfill May 2021\\
+
+% \text{Gold Medal at Halton Robotics Competition} \hfill Apr 2019\\
+
+% \vspace*{1mm}
+% \vspace{2mm}
 
 \vspace*{5mm}
 \end{document}
+
+
+% make extracurricular section and add awards to that section, say captain of football team, 
+% education last, skills -> langs spoken eng and urdu, extracurriculars before work and skills under work, 
+% First section be 2-3 words about u.
+% Work -> merge uottawa stuff
+% Reduce amount of text in resume in work experience section
