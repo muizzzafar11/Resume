@@ -82,13 +82,13 @@
 
 \vspace{-5pt}
 \begin{center}
-\textbf{Software Engineer | Data Platforms | Cloud Infrastructure}
+\textbf{Software Engineer | ETL Pipelines | Data Platforms | Cloud Infrastructure}
 \end{center}
 
 \header{Skills}
 \begin{tabular}{ l l }
-	Programming Languages:        & Java, Python, GoLang, JavaScript, Kotlin, C\#, SQL, HTML/CSS, PHP, Flutter, C++\\
-	Tools/Frameworks: & AWS, Splunk, Flask, React, Vue, Angular, GraphQl, Docker, Git, Firebase, Linux \\
+	Programming Languages:        & Java, Python, TypeScript, GoLang, SQL, JavaScript, Kotlin, C\#, C++, HTML/CSS, PHP\\
+	Tools/Frameworks: & AWS, AWS CDK, CloudFormation, Docker, Splunk, CloudWatch, Athena, Apache Spark, Amazon EMR, Flask, GraphQl, Git, Linux \\
  
 \end{tabular}
 \vspace{2mm}
@@ -104,30 +104,46 @@ Bachelor of Applied Science, Software Engineering \textit{GPA: 3.7/4.0} \hfill S
 \vspace{1.5mm}
 
 \textbf{Software Developer} \hfill Jan 2025 - Present\\
+\textit{Kinaxis Inc.} \hfill Ottawa, ON\\
+\vspace{-2mm}
+\begin{itemize} \itemsep -2pt
+
+\item Developed an automation framework to convert legacy KUnit tests written as sql queries to \textbf{JUnit} in \textbf{Java} by adding serilization modules at the start and end of each backend algorithm to capture the inputs and outputs for each test.
+
+\item Implemented \textbf{Java services} supporting scope control to detect incompatiblities between different features of the Rapid Response product which was used by customers and reduced L3 escalations by customers. 
+
+\item Designed automated queries in SQL to detect known behavioral differences across different algorithms between the legacy and modular codebase. 
+
+\item Used \textbf{Javascript} to write automated workflows within the rapid response product to run the known difference queries and visualize the known differences for higher management, directors, and customers to see the differences between legacy and modular codebase
+
+\end{itemize}
+
+\textbf{ETL Developer} \hfill May 2024 - December 2024\\
 \textit{Elections Canada} \hfill Ottawa, ON\\
 \vspace{-2mm}
 \begin{itemize} \itemsep -2pt
 
-\item Designed and implemented a scalable \textbf{ETL validation framework} using \textbf{Python} and \textbf{Azure DevOps CI/CD pipelines} to support automated validation of large-scale data pipelines across multiple environments.
+\item Built automated \textbf{Python ETL validation pipelines} and \textbf{Azure DevOps CI/CD workflows} to verify high-volume production data movement across multiple environments and multi-table workflows, reducing manual validation effort.
 
-\item Developed automated \textbf{data validation and scoring pipelines} to monitor ETL reliability and ensure data consistency across \textbf{Oracle and SQL Server systems processing high-volume datasets}.
+% \item Developed \textbf{data validation and scoring pipelines} to monitor ETL reliability, measure data quality, and enforce consistency across \textbf{Oracle and SQL Server systems} supporting high-volume election data workflows.
 
-\item Built internal \textbf{data analytics dashboards} using \textbf{Python, Streamlit, and Plotly Dash} to visualize operational metrics and support data quality monitoring for production systems.
+\item Used \textbf{Apache Spark} to profile, transform, and validate large datasets during pipeline verification, accelerating bulk data checks and anomaly detection across staging and production environments.
 
-\item Coordinated version-controlled database deployments and release processes, improving traceability and reliability of \textbf{production data infrastructure}.
+\item Built internal \textbf{data analytics dashboards} using \textbf{Python, Streamlit, and Plotly Dash} to surface pipeline health, operational metrics, validation trends, and data quality issues for production systems.
 
-\item Collaborated in an \textbf{Agile cross-functional team} with cloud engineers and DevOps teams to improve \textbf{distributed data workflows} and system reliability.
+\item Coordinated version-controlled database deployments and release processes, improving traceability and reliability of \textbf{production data infrastructure} across shared environments.
+
+\item Collaborated in an \textbf{Agile cross-functional team} with cloud engineers and DevOps teams to improve \textbf{distributed data workflows}, release quality, and production reliability.
 \end{itemize}
 
-\textbf{Full Stack Developer Intern } \hfill September 2023 - April 2024\\
-\textit{University of Ottawa} \hfill Ottawa, ON\\
-\vspace{-2mm}
-\begin{itemize} \itemsep -2pt
-    \item Redesigned the University of Ottawa's emergency alert website with \textbf{C\#} and \textbf{Angular}, introducing a modern, interactive UI. Used by over \textbf{20,000} students daily.
-    \textbf{website: \href{https://ue.uottawa.ca/}{ue.uottawa.ca/}}
-    % ITS Job uottawa drupal etc
-    % \item Lead a strategic overhaul of a high-traffic emergency system website serving \textbf{50,000 users}, utilizing Laravel to fortify backend processes and advance operational reliability during critical situations. Furthermore, execute tailored feature enhancements on a \textbf{Drupal-based} website, significantly improving the digital experience for \textbf{50,000 +} students.
-\end{itemize}
+% \textbf{Full Stack Developer Intern } \hfill September 2023 - April 2024\\
+% \textit{University of Ottawa} \hfill Ottawa, ON\\
+% \vspace{-2mm}
+% \begin{itemize} \itemsep -2pt
+%     \item Delivered production updates to the University of Ottawa emergency alert platform using \textbf{C\#} and \textbf{Angular}, supporting a high-traffic service used by over \textbf{20,000} students daily.
+%     % ITS Job uottawa drupal etc
+%     % \item Lead a strategic overhaul of a high-traffic emergency system website serving \textbf{50,000 users}, utilizing Laravel to fortify backend processes and advance operational reliability during critical situations. Furthermore, execute tailored feature enhancements on a \textbf{Drupal-based} website, significantly improving the digital experience for \textbf{50,000 +} students.
+% \end{itemize}
 
 
 
@@ -135,44 +151,46 @@ Bachelor of Applied Science, Software Engineering \textit{GPA: 3.7/4.0} \hfill S
 \textit{Trend Micro Inc.} \hfill Ottawa, ON\\
 \vspace{-2mm}
 \begin{itemize} \itemsep -2pt
-    \item Developed serverless monitoring systems using \textbf{AWS Lambda} to analyze uploaded client files and images, supporting automated vulnerability scanning workflows in a cloud-native environment.
+    \item Developed serverless monitoring workflows using \textbf{AWS Lambda, S3, and CloudWatch} to analyze uploaded client files and images and support automated vulnerability scanning pipelines for high-volume cloud artifacts.
 
-\item Implemented concurrent processing logic in \textbf{GoLang} using goroutines to improve error handling, reliability, and execution efficiency of distributed cloud workloads.
+\item Defined and maintained cloud infrastructure using \textbf{TypeScript}, \textbf{AWS CDK}, and \textbf{CloudFormation} to provision monitoring resources and improve repeatability of service deployments.
 
-\item Integrated vulnerability scanning tools (\textbf{Anchore, Grype}) with AWS services to automate security checks across large volumes of cloud artifacts.
+\item Implemented concurrent processing logic in \textbf{GoLang} using goroutines to improve throughput, reliability, and fault handling for \textbf{distributed cloud data processing} workloads.
+
+\item Integrated vulnerability scanning tools (\textbf{Anchore, Grype}) with AWS services to automate security checks and operational monitoring across large volumes of cloud artifacts.
 \end{itemize}
 
 \textbf{Cloud Developer Intern} \hfill September 2022 - December 2022\\
 \textit{Trend Micro Inc.} \hfill Ottawa, ON\\
 \vspace{-2mm}
 \begin{itemize} \itemsep -2pt
-        \item Built a serverless automation pipeline using \textbf{AWS Lambda, S3, and Athena} to trigger metadata updates for incoming cloud data events, reducing manual operational effort.
+        \item Built a serverless automation pipeline using \textbf{AWS Lambda, S3, and Athena} to process incoming cloud data events, query metadata, and trigger downstream updates with less manual operational effort.
 
-\item Configured \textbf{Splunk} and \textbf{AWS CloudWatch} monitoring to track system logs and failures, improving observability of production cloud infrastructure.
+\item Supported large-scale data processing workflows with \textbf{Amazon EMR} and \textbf{Apache Spark}, using batch jobs to analyze cloud metadata and improve downstream reporting, validation, and metrics generation.
 
-\item Developed \textbf{Docker-based integration tests} and unit tests to validate cloud services and ensure reliability of distributed serverless systems.
+\item Configured \textbf{Splunk} and \textbf{AWS CloudWatch} monitoring, alarms, dashboards, and alerts to track system logs, metrics, and failures, improving observability of production cloud infrastructure.
+
+\item Developed \textbf{Docker-based integration tests} and unit tests to validate cloud services and improve reliability of distributed serverless data pipelines.
 \end{itemize}
 
 \textbf{Full Stack Developer Intern} \hfill January 2022 - April 2022\\
 \textit{Applied Mind Inc.} \hfill Ottawa, ON\\
 \vspace{-2mm}
 \begin{itemize} \itemsep -2pt
-	\item Utilized containerization concepts to create \textbf{Docker} containers for the full- stack application for PROD deployment
-    \item Automated the event detection process by adding events to \textbf{PostgreSQL} DB using \textbf{Python} and \textbf{GraphQl} which helped reduce testing time by \textbf{10 seconds}
+	\item Built \textbf{Docker} containers and automated event ingestion into \textbf{PostgreSQL} using \textbf{Python} and \textbf{GraphQl}, reducing testing time and improving deployment readiness.
     % \item Added dynamic updates to the graph, map, and notification components using \textbf{Vue} dynamic update feature and \textbf{GraphQL} subscriptions which improved UX
 \end{itemize}
 
 % \vspace{-1mm}
 
 
-\textbf{Full Stack Developer Intern } \hfill May 2021 - August 2021\\
-\textit{University of Ottawa} \hfill Ottawa, ON\\
-\vspace{-2mm}
-\begin{itemize} \itemsep -2pt
-    % \item Wrote 9 End to End tests using \textbf{Cypress}, and 25 unit tests using \textbf{Jasmine} for new APIs and features implemented on frontend and \textbf{JUnit} backend
-     \item Optimized existing \textbf{C\#} REST APIs by reducing \textbf{SQL} query execution time for event data lookup by \textbf{30 \%} and lines of code by \textbf{40 \%}
-    \item Revamped the event registration and admin webpages by using \textbf{Angular} material UI components to improve UI layout and reducing redundant lines of code by almost \textbf{50 \%}
-\end{itemize}
+% \textbf{Full Stack Developer Intern } \hfill May 2021 - August 2021\\
+% \textit{University of Ottawa} \hfill Ottawa, ON\\
+% \vspace{-2mm}
+% \begin{itemize} \itemsep -2pt
+%     % \item Wrote 9 End to End tests using \textbf{Cypress}, and 25 unit tests using \textbf{Jasmine} for new APIs and features implemented on frontend and \textbf{JUnit} backend
+%      \item Optimized \textbf{C\#} REST APIs and \textbf{SQL} queries for university event systems, reducing event data lookup time by \textbf{30 \%} and simplifying backend code by \textbf{40 \%}.
+% \end{itemize}
 
 % \textbf{Full Stack Developer} \hfill June 2019 - May 2021\\
 % \textit{Tech Under Twenty} \hfill Oakville, ON\\
