@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1777260497.46804 "/Users/muizafar/Documents/Programming/Resume/Resume.tex" "Resume.pdf" "Resume" 1777260497.91147 0
-  "/Users/muizafar/Documents/Programming/Resume/Resume.tex" 1777260497.22567 13216 9d6c6b992711ac7d36ee4af63c59cbc1 ""
+["pdflatex"] 1779076781.42798 "/Users/muizafar/Documents/Programming/Resume/Resume.tex" "Resume.pdf" "Resume" 1779076781.79991 0
+  "/Users/muizafar/Documents/Programming/Resume/Resume.tex" 1779076780.24793 13906 da3bb2e90d498feea5d734d13d8c8af8 ""
   "/Users/muizafar/Library/texlive/2025basic/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1000.600pk" 1772406349.81701 25396 2a7fd62f223b5b712fa1c2e9f91f7e4b ""
   "/Users/muizafar/Library/texlive/2025basic/texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1000.600pk" 1772406349.39376 25076 be9670a177bef7b1682d66eef13459f9 ""
   "/Users/muizafar/Library/texlive/2025basic/texmf-var/fonts/pk/ljfour/jknappen/ec/eccc2488.600pk" 1772406350.83994 74620 9f0f3bde38d5cf910a655eddcb2c2f92 ""
@@ -80,9 +80,9 @@
   "/usr/local/texlive/2025basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1772406808 79541 430a87633be0796501a19288fae316d6 ""
   "/usr/local/texlive/2025basic/texmf-var/web2c/pdftex/pdflatex.fmt" 1772406741 2966371 767df971aecfdeff2b74af0520b5ba4d ""
   "/usr/local/texlive/2025basic/texmf.cnf" 1741448314 628 81d1ada0f601fb1ffa62f1323192d946 ""
-  "Resume.aux" 1777260497.84732 162 55205a9e8a8eca30d36afb389b0617bf "pdflatex"
-  "Resume.out" 1777260497.81319 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "Resume.tex" 1777260497.22567 13216 9d6c6b992711ac7d36ee4af63c59cbc1 ""
+  "Resume.aux" 1779076781.73507 162 55205a9e8a8eca30d36afb389b0617bf "pdflatex"
+  "Resume.out" 1779076781.70943 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "Resume.tex" 1779076780.24793 13906 da3bb2e90d498feea5d734d13d8c8af8 ""
   (generated)
   "Resume.aux"
   "Resume.log"
