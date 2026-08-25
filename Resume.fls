@@ -141,14 +141,12 @@ INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/jknappen/ec/eccc1000.tfm
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/jknappen/ec/ecbx1000.tfm
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/jknappen/ec/ecti1000.tfm
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm
-INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/jknappen/ec/ecsl1000.tfm
 INPUT /usr/local/texlive/2025basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/fontawesome/fontawesomeone.enc
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/fontawesome/fontawesometwo.enc
 INPUT Resume.aux
 INPUT ./Resume.out
 INPUT ./Resume.out
-INPUT /Users/muizafar/Library/texlive/2025basic/texmf-var/fonts/pk/ljfour/jknappen/ec/ecsl1000.600pk
 INPUT /Users/muizafar/Library/texlive/2025basic/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk
 INPUT /Users/muizafar/Library/texlive/2025basic/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1000.600pk
 INPUT /Users/muizafar/Library/texlive/2025basic/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1000.600pk
