@@ -1,0 +1,95 @@
+% Tailored draft for aviso-data-engineer - base: data-engineering
+\documentclass[a4paper]{article}
+    \usepackage{amsmath}
+    \usepackage{amssymb}
+    \usepackage{textcomp}
+    \usepackage[utf8]{inputenc}
+    \usepackage[T1]{fontenc}
+    \textheight=10.8in
+    \pagestyle{empty}
+    \raggedright
+    \usepackage{fontawesome}
+    \usepackage{hyperref}
+    \usepackage[left=0.5in, right=0.4in, top=0.4in, bottom=0.3in]{geometry}
+    \linespread{0.92}
+\def\bull{\vrule height 0.8ex width .7ex depth -.1ex }
+\newcommand{\lineunder} {
+    \vspace*{-8pt} \\
+    \hspace*{-18pt} \hrulefill \\
+}
+\newcommand{\header} [1] {
+    {\hspace*{-18pt}\vspace*{6pt} \textsc{#1}}
+    \vspace*{-6pt} \lineunder
+}
+    \begin{document}
+\vspace*{-40pt}
+\vspace*{-10pt}
+\begin{center}
+	{\Huge \scshape {Muhammad Muizz Zafar}}\\
+	\faSend \space \href{mailto:muizzafar11@gmail.com}{muizzafar11@gmail.com} $\cdot$ \faPhoneSquare \space 905-805-9142 $\cdot$ \faLinkedinSquare \space \href{https://www.linkedin.com/in/muizz-zafar/}{linkedin.com/in/muizz-zafar/}
+	\\
+\end{center}
+\vspace{-5pt}
+\begin{center}
+\textbf{Data Developer | SQL | Python | PySpark | Data Modeling | ETL}
+\end{center}
+\begin{center}
+Data engineer: Python/PySpark ETL pipelines and data modeling, strong SQL development, database architecture and data warehousing, and data quality in production environments.
+\end{center}
+\header{Skills}
+\begin{tabular}{ l l }
+	Languages: & Python, SQL, GoLang, Java, C\#, C++ \\
+Data Engineering: & Data Warehousing, Data Modeling, Apache Airflow, PySpark, Apache Spark\\
+& AWS (S3, Lambda, Athena), MSSQL Server, Oracle, Docker, Git, Linux, Datalake
+\end{tabular}
+\header{Education}
+\textbf{University of Ottawa}\hfill Ottawa, ON\\
+Bachelor of Applied Science, Software Engineering \textit{GPA: 3.7/4.0} \hfill Sept 2020 - Dec 2024\\
+\vspace{1mm}
+\header{Work experience}
+\vspace{1.5mm}
+\textbf{Data Engineer} \hfill May 2024 - Present\\
+\textit{Government Of Canada} \hfill Ottawa, ON\\
+\vspace{-2mm}
+\begin{itemize} \itemsep -2pt
+\item Designed logical and physical data models, defining schema and relationships for a centralized \textbf{Microsoft SQL Server} data warehouse supporting datasets of \textbf{20M+ records}.
+\item Built and maintained scalable \textbf{ETL pipelines} to extract data from \textbf{Oracle} databases, transform it using \textbf{SQL} and \textbf{Python}, and load it into semi-structured data in a JSON-based \textbf{data lake} layer and Microsoft SQL Server data warehouse, processing \textbf{5GB+} of data per pipeline run.
+\item Developed a reusable ETL validation framework using \textbf{Python} and \textbf{PySpark}, enabling automated validation of large datasets (\textbf{20M+ records}) across dev, uat, and prod environments, reducing data discrepancies by \textbf{60\%}.
+\item Implemented data quality checks, scoring logic, and anomaly detection workflows to proactively identify inconsistencies, improving data reliability and reducing production data issues by \textbf{50\%}.
+\item Orchestrated and scheduled data workflows using \textbf{Apache Airflow}, automating pipeline execution and dependency management, reducing manual intervention by \textbf{70\%} and improving pipeline reliability.
+\item Supported data migration projects, validating data quality and integrity during migration and improving consistency across systems.
+\item Developed and optimized complex \textbf{SQL queries and transformations}, reducing processing time for large-scale ETL jobs by \textbf{35 minutes}.
+\item Built \textbf{Power BI and Streamlit dashboards} for pipeline performance and data quality, helping stakeholders identify issues \textbf{2x faster}.
+\end{itemize}
+\textbf{Full Stack Developer Intern } \hfill September 2023 - April 2024\\
+\textit{University of Ottawa} \hfill Ottawa, ON\\
+\vspace{-2mm}
+\begin{itemize} \itemsep -2pt
+    \item Redesigned the University of Ottawa's emergency alert website with \textbf{C\#} and \textbf{Angular}, introducing a modern, interactive UI. Used by over \textbf{20,000} students daily.
+     \item Optimized existing \textbf{C\#} REST APIs by reducing \textbf{SQL} query execution time for event data lookup by \textbf{30 \%} and lines of code by \textbf{40 \%}
+    \item Revamped the event registration and admin webpages by using \textbf{Angular} material UI components to improve UI layout and reducing redundant lines of code by almost \textbf{50 \%}
+\end{itemize}
+\textbf{Data Engineer Intern} \hfill May 2023 - August 2023\\
+\textit{Trend Micro Inc.} \hfill Ottawa, ON\\
+\vspace{-2mm}
+\begin{itemize} \itemsep -2pt
+\item Designed and implemented a serverless data pipeline using \textbf{AWS Lambda, S3, and Athena}, leveraging \textbf{AWS SAM} and \textbf{CloudFormation} for infrastructure-as-code and automated deployment.
+\item Enabled scalable data querying workflows by integrating \textbf{Amazon Athena} to query data stored in S3, reducing manual data processing efforts.
+\item Configured \textbf{AWS CloudWatch} and \textbf{Splunk} monitoring to track pipeline performance, logs, and failures, enhancing observability and system reliability.
+\end{itemize}
+\textbf{Cloud Developer Intern} \hfill September 2022 - December 2022\\
+\textit{Trend Micro Inc.} \hfill Ottawa, ON\\
+\vspace{-2mm}
+\begin{itemize} \itemsep -2pt
+\item Developed serverless data processing pipelines using \textbf{AWS Lambda} to analyze client files, images, and code stored in \textbf{Amazon S3}, performing vulnerability scans using Anchore APIs and Grype.
+\item Implemented concurrent processing and robust error handling in \textbf{GoLang} using goroutines within Lambda functions, improving reliability and reducing data corruption in high-throughput environments.
+\item Enabled scalable data querying workflows by integrating \textbf{Amazon Athena} to query data stored in S3, reducing manual data processing efforts.
+\end{itemize}
+\textbf{Full Stack Developer Intern} \hfill January 2022 - April 2022\\
+\textit{Applied Mind Inc.} \hfill Ottawa, ON\\
+\vspace{-2mm}
+\begin{itemize} \itemsep -2pt
+\item Containerized a full-stack application with \textbf{Docker} for reliable \textbf{production deployments}, and automated event detection by adding events to \textbf{PostgreSQL} using \textbf{Python} and \textbf{GraphQl}, reducing testing time by \textbf{10 seconds}.
+\end{itemize}
+\vspace{5mm}
+\end{document}
