@@ -1,227 +1,111 @@
 #!/usr/bin/env python3
-"""Push tailored resumes to the muizzzafar11/Resume repo, one branch per job.
+"""Publish each tailored/<name>.tex as resume.tex + resume.pdf on its own Git branch.
 
-Run this from anywhere inside the repo on the Mac (it finds the repo root
-itself). It expects the Mac repo layout: tailored/<slug>.tex next to
-tailored/<slug>.pdf.
-
-For each resume slug, in order:
-  1. Check out a branch named <slug> (created from --base, default "main",
-     if it does not exist yet locally).
-  2. Compile tailored/<slug>.tex with pdflatex. If compilation fails, that
-     slug is SKIPPED: nothing is committed or pushed for it.
-  3. Commit tailored/<slug>.tex and tailored/<slug>.pdf, but only if they
-     changed.
-  4. Push the branch to origin (sets upstream on first push).
-
-Which slugs:
-  - Default: APPLIED_SLUGS below (jobs applied to so far, Oct 27, 2026).
-    To add a newly applied job, append its slug to that list.
-  - Pass slugs on the command line to process only those, e.g.:
-        python3 push_tailored_resumes.py toronto-tempo-data-engineer
-  - --all processes every .tex file found in tailored/ (this includes the
-    base template and roles that were only tailored, not applied -- use it
-    deliberately).
-
-Safety:
-  - Never force-pushes. If the remote branch has diverged history, the push
-    fails for that slug and the script moves on.
-  - Refuses to start with a dirty tracked working tree (untracked files are
-    fine), so it never sweeps unrelated edits into a resume branch.
-  - Cleans up pdflatex by-products (.aux/.log/.out) after each compile.
-
-Requires: git and pdflatex on PATH. Exit code 0 only if every processed slug
-was pushed; otherwise 1 (see the summary table at the end).
+Run from anywhere: python automate_resumes.py
+Requirements: Git, pdflatex (or change LATEX_COMMAND), configured origin push access.
 """
-
-import argparse
-import os
+from pathlib import Path
+import re
 import shutil
 import subprocess
 import sys
+import tempfile
 
-# Jobs applied to so far (submitted applications with a tailored resume).
-# NOTE: the six Oct 27 evening tailors (Tempo, Job Bank Mississauga,
-# Moneris, Movable Ink x2, Tangerine) are NOT in this list yet because they
-# have not been applied to -- add their slugs here once they are submitted.
-APPLIED_SLUGS = [
-    "aequilibrium-senior-full-stack-developer",
-    "penn-interactive-senior-data-engineer",
-    "ntt-data-aws-data-engineer",
-    "ntt-data-full-stack-developer",
-    "valsoft-software-developer",
-    "aviso-data-engineer",
-    "intelerad-senior-software-developer",
-    "ontinue-cloud-native-developer",
-    "financeit-data-engineer",
-    "opg-junior-software-engineer-full-stack",
-    "td-data-engineer-ii",
-    "sotera-health-database-administrator",
-    "ciro-senior-database-administrator",
-    "bmo-senior-database-administrator",
-    "cpus-financial-data-analyst",
-    "mnp-data-developer-term",
-    "nesto-senior-data-engineer",
-    "four-seasons-bi-engineer",
-    "cloudvital-sql-database-administrator",
-    "citi-intermediate-programmer-analyst",
-    "synechron-cube-developer",
-    "sunlife-infrastructure-dba",
-    "amazon-data-engineer-early-career",
-    "amazon-sr-business-intelligence-engineer",
-]
+ROOT = Path(__file__).resolve().parent
+SOURCE = ROOT / 'tailored'
+LATEX_COMMAND = 'pdflatex'
+REMOTE = 'origin'
 
 
-def run(cmd, cwd, check=False):
-    """Run cmd (list) in cwd; return the CompletedProcess (output captured)."""
-    proc = subprocess.run(cmd, cwd=cwd, capture_output=True, text=True)
-    if check and proc.returncode != 0:
-        raise RuntimeError(
-            f"command failed ({proc.returncode}): {' '.join(cmd)}\n"
-            f"{proc.stdout}{proc.stderr}"
-        )
-    return proc
+def run(*args, cwd=ROOT, capture=False):
+    result = subprocess.run(args, cwd=cwd, text=True, check=True,
+                            stdout=subprocess.PIPE if capture else None,
+                            stderr=subprocess.PIPE if capture else None)
+    return result.stdout.strip() if capture else None
 
 
-def repo_root(start):
-    proc = run(["git", "rev-parse", "--show-toplevel"], cwd=start)
-    if proc.returncode != 0:
-        sys.exit("error: not inside a git repository (run from the Resume repo).")
-    return proc.stdout.strip()
-
-
-def branch_exists(root, branch):
-    return run(
-        ["git", "show-ref", "--verify", f"refs/heads/{branch}"], cwd=root
-    ).returncode == 0
-
-
-def compile_tex(tailored_dir, slug):
-    """Compile tailored/<slug>.tex with pdflatex. Returns True on success."""
-    tex = f"{slug}.tex"
-    pdf = f"{slug}.pdf"
-    pdf_path = os.path.join(tailored_dir, pdf)
-    if os.path.exists(pdf_path):
-        os.remove(pdf_path)  # prove the PDF came from this compile
-    proc = run(
-        ["pdflatex", "-interaction=nonstopmode", "-halt-on-error", tex],
-        cwd=tailored_dir,
-    )
-    # Clean by-products either way; they are regenerable.
-    for ext in (".aux", ".log", ".out"):
-        byproduct = os.path.join(tailored_dir, slug + ext)
-        if os.path.exists(byproduct):
-            os.remove(byproduct)
-    if proc.returncode != 0 or not os.path.exists(pdf_path):
-        print(f"  !! compile failed for {slug}:")
-        tail = (proc.stdout + proc.stderr).strip().splitlines()[-15:]
-        print("\n".join("     " + line for line in tail))
-        return False
-    return True
-
-
-def process_slug(root, tailored_dir, slug, base):
-    tex_rel = os.path.join("tailored", f"{slug}.tex")
-    pdf_rel = os.path.join("tailored", f"{slug}.pdf")
-    if not os.path.exists(os.path.join(root, tex_rel)):
-        return "skipped (no .tex file)"
-    print(f"== {slug} ==")
-    if branch_exists(root, slug):
-        run(["git", "checkout", slug], cwd=root, check=True)
-        print(f"  checked out existing branch {slug}")
-    else:
-        run(["git", "checkout", "-b", slug, base], cwd=root, check=True)
-        print(f"  created branch {slug} from {base}")
-    if not compile_tex(tailored_dir, slug):
-        return "FAILED (compile)"
-    run(["git", "add", tex_rel, pdf_rel], cwd=root, check=True)
-    # Commit only if something actually changed.
-    staged = run(["git", "diff", "--cached", "--quiet"], cwd=root)
-    if staged.returncode != 0:
-        run(
-            ["git", "commit", "-m", f"Add tailored resume for {slug}"],
-            cwd=root,
-            check=True,
-        )
-        print("  committed .tex + .pdf")
-    else:
-        print("  no changes to commit")
-    push = run(["git", "push", "-u", "origin", slug], cwd=root)
-    if push.returncode != 0:
-        print(f"  !! push failed for {slug}:\n{push.stdout}{push.stderr}")
-        return "FAILED (push)"
-    print(f"  pushed {slug}")
-    return "pushed"
+def branch_name(stem):
+    name = re.sub(r'[^A-Za-z0-9._/-]+', '-', stem).strip('.-/')
+    if not name or name.endswith('.lock') or '..' in name or '@{' in name:
+        raise ValueError(f'Invalid branch name from {stem!r}')
+    run('git', 'check-ref-format', '--branch', name, capture=True)
+    return name
 
 
 def main():
-    parser = argparse.ArgumentParser(
-        description="Compile and push tailored resumes, one branch per job."
-    )
-    parser.add_argument("slugs", nargs="*", help="resume slugs to process")
-    parser.add_argument(
-        "--all", action="store_true",
-        help="process every .tex file in tailored/ instead of APPLIED_SLUGS",
-    )
-    parser.add_argument(
-        "--base", default="main", help="branch to create new branches from"
-    )
-    args = parser.parse_args()
+    if not SOURCE.is_dir():
+        sys.exit(f'Missing folder: {SOURCE}')
+    if not shutil.which(LATEX_COMMAND):
+        sys.exit(f'{LATEX_COMMAND} not found in PATH; install a LaTeX distribution.')
+    if run('git', 'rev-parse', '--show-toplevel', capture=True) != str(ROOT):
+        sys.exit('Place this script in the Git repository root.')
+    if run('git', 'status', '--porcelain', capture=True):
+        sys.exit('Working tree is not clean. Commit/stash changes before running.')
+    original = run('git', 'branch', '--show-current', capture=True)
+    if not original:
+        sys.exit('Start from a named branch, not detached HEAD.')
+    run('git', 'remote', 'get-url', REMOTE, capture=True)
 
-    if not shutil.which("git"):
-        sys.exit("error: git not found on PATH.")
-    if not shutil.which("pdflatex"):
-        sys.exit("error: pdflatex not found on PATH (install MacTeX first).")
+    pairs = []
+    for tex in sorted(SOURCE.glob('*.tex')):
+        pdf = tex.with_suffix('.pdf')
+        if not pdf.exists():
+            print(f'Skipping {tex.name}: matching PDF missing')
+            continue
+        pairs.append((tex.name, pdf.name, branch_name(tex.stem)))
+    if not pairs:
+        sys.exit('No .tex/.pdf pairs found in tailored/.')
+    if len({p[2].lower() for p in pairs}) != len(pairs):
+        sys.exit('Two filenames produce the same branch name.')
 
-    root = repo_root(os.getcwd())
-    tailored_dir = os.path.join(root, "tailored")
-    if not os.path.isdir(tailored_dir):
-        sys.exit(f"error: no tailored/ directory in repo root {root}")
+    # A temporary directory outside Git preserves source files across checkouts.
+    # It also keeps any existing tailored/ folder untouched on the source branch.
+    with tempfile.TemporaryDirectory(prefix='resume-publish-') as temp:
+        staging = Path(temp)
+        for tex_name, pdf_name, branch in pairs:
+            shutil.copy2(SOURCE / tex_name, staging / tex_name)
+            shutil.copy2(SOURCE / pdf_name, staging / pdf_name)
+        try:
+            for tex_name, pdf_name, branch in pairs:
+                print(f'\n=== Publishing {branch} ===', flush=True)
+                # Existing branches are updated; otherwise create from starting branch.
+                exists = subprocess.run(['git', 'show-ref', '--verify', '--quiet', f'refs/heads/{branch}'], cwd=ROOT).returncode == 0
+                if exists:
+                    run('git', 'switch', branch)
+                else:
+                    run('git', 'switch', '-c', branch, original)
+                # Branch-specific files are staged from outside the repo.
+                shutil.copy2(staging / tex_name, ROOT / 'resume.tex')
+                # Delete the old PDF before compilation; never publish stale output.
+                (ROOT / 'resume.pdf').unlink(missing_ok=True)
+                with tempfile.TemporaryDirectory(prefix='latex-build-') as build:
+                    build_dir = Path(build)
+                    # Compile from repo root for relative assets, output in temp dir.
+                    run(LATEX_COMMAND, '-interaction=nonstopmode', '-halt-on-error',
+                        f'-output-directory={build_dir}', 'resume.tex')
+                    compiled = build_dir / 'resume.pdf'
+                    if not compiled.is_file():
+                        raise RuntimeError(f'Compilation produced no PDF for {branch}')
+                    shutil.copy2(compiled, ROOT / 'resume.pdf')
+                run('git', 'add', '--', 'resume.tex', 'resume.pdf')
+                changes = subprocess.run(['git', 'diff', '--cached', '--quiet'], cwd=ROOT).returncode != 0
+                if changes:
+                    run('git', 'commit', '-m', f'Update resume: {branch}')
+                else:
+                    print('No changes to commit.')
+                run('git', 'push', '-u', REMOTE, branch)
+                print(f'Published {branch}', flush=True)
+        finally:
+            # Restore only when the worktree is clean; preserve failed build state for debugging.
+            if not run('git', 'status', '--porcelain', capture=True):
+                run('git', 'switch', original)
+                print(f'\nRestored original branch: {original}')
+            else:
+                print('\nWorking tree has changes; leaving current branch for inspection.', file=sys.stderr)
 
-    # Refuse a dirty tracked tree so unrelated edits never ride along.
-    dirty = run(
-        ["git", "status", "--porcelain", "--untracked-files=no"], cwd=root
-    ).stdout.strip()
-    if dirty:
-        sys.exit(
-            "error: tracked working tree is dirty; commit or stash first:\n"
-            + dirty
-        )
 
-    if args.slugs:
-        slugs = args.slugs
-    elif args.all:
-        slugs = sorted(
-            f[:-4]
-            for f in os.listdir(tailored_dir)
-            if f.endswith(".tex") and not f.startswith(".")
-        )
-    else:
-        slugs = list(APPLIED_SLUGS)
-    if not slugs:
-        sys.exit("nothing to do: no slugs selected and tailored/ is empty.")
-
-    results = {}
+if __name__ == '__main__':
     try:
-        for slug in slugs:
-            try:
-                results[slug] = process_slug(root, tailored_dir, slug, args.base)
-            except RuntimeError as exc:
-                results[slug] = f"FAILED ({exc})"
-            finally:
-                # Always return to the base branch before the next slug.
-                run(["git", "checkout", args.base], cwd=root)
-    finally:
-        run(["git", "checkout", args.base], cwd=root)
-
-    print("\nSummary:")
-    failed = False
-    for slug, outcome in results.items():
-        print(f"  {slug}: {outcome}")
-        if outcome.startswith("FAILED"):
-            failed = True
-    sys.exit(1 if failed else 0)
-
-
-if __name__ == "__main__":
-    main()
+        main()
+    except (subprocess.CalledProcessError, OSError, ValueError, RuntimeError) as exc:
+        sys.exit(f'ERROR: {exc}')

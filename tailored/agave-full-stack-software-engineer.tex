@@ -1,0 +1,278 @@
+\documentclass[a4paper]{article}
+    % \usepackage{fullpage}
+    \usepackage{amsmath}
+    \usepackage{amssymb}
+    \usepackage{textcomp}
+    \usepackage[utf8]{inputenc}
+    \usepackage[T1]{fontenc}
+    \textheight=10.8in
+    \pagestyle{empty}
+    \raggedright
+    \usepackage{fontawesome}
+    \usepackage{hyperref}
+    \usepackage[left=0.5in, right=0.4in, top=0.4in, bottom=0.3in]{geometry}
+    \linespread{0.88}
+
+    %\renewcommand{\encodingdefault}{cg}
+%\renewcommand{\rmdefault}{lgrcmr}
+
+\def\bull{\vrule height 0.8ex width .7ex depth -.1ex }
+
+% DEFINITIONS FOR RESUME %%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\area} [2] {
+    \vspace*{-9pt}
+    \begin{verse}
+        \textbf{#1}   #2
+    \end{verse}
+}
+
+\newcommand{\lineunder} {
+    \vspace*{-8pt} \\
+    \hspace*{-18pt} \hrulefill \\
+}
+
+\newcommand{\header} [1] {
+    {\hspace*{-18pt}\vspace*{6pt} \textsc{#1}}
+    \vspace*{-6pt} \lineunder
+}
+
+\newcommand{\employer} [3] {
+    { \textbf{#1} (#2)\\ \underline{\textbf{\emph{#3}}}\\  }
+}
+
+\newcommand{\contact} [3] {
+    \vspace*{-10pt}
+    \begin{center}
+        {\Huge \scshape {#1}}\\
+        #2 \\ #3
+    \end{center}
+    \vspace*{-8pt}
+}
+
+\newenvironment{achievements}{
+    \begin{list}
+        {$\bullet$}{\topsep 0pt \itemsep -4pt}}{\vspace*{4pt}
+    \end{list}
+}
+
+\newcommand{\schoolwithcourses} [4] {
+    \textbf{#1} #2 $\bullet$ #3\\
+    #4 \\
+    \vspace*{5pt}
+}
+
+\newcommand{\school} [4] {
+    \textbf{#1} #2 $\bullet$ #3\\
+    #4 \\
+}
+% END RESUME DEFINITIONS %%%%%%%%%%%%%%%%%%%%%%%
+
+    \begin{document}
+\vspace*{-40pt}
+
+    
+
+%==== Profile ====%
+\vspace*{-10pt}
+\begin{center}
+	{\Huge \scshape {Muhammad Muizz Zafar}}\\
+	\faSend \space \href{mailto:muizzafar11@gmail.com}{muizzafar11@gmail.com} $\cdot$ \faPhoneSquare \space 905-805-9142 $\cdot$ \faLinkedinSquare \space \href{https://www.linkedin.com/in/muizz-zafar/}{linkedin.com/in/muizz-zafar/}
+	\\
+\end{center}
+
+% \header{Security Clearance}
+% \vspace{1.5mm}
+
+% \textbf{Secret Level Security Clearance} \hfill October 2024 - October 2034\\
+% \vspace{4mm}
+\vspace{-5pt}
+\begin{center}
+\textbf{Full-Stack Software Engineer | Python | APIs | AWS | SQL}
+\end{center}
+\begin{center}
+Full-stack software engineer: production Python APIs and backend services, full-stack web development, and serverless cloud infrastructure with automated deployment and production support.
+\end{center}
+
+\header{Skills}
+\begin{tabular}{ l l }
+	Languages: 
+& Python, SQL, GoLang, Java, C\#, C++ \\
+
+Data Engineering: 
+& Full-Stack \& Cloud: 
+& Python, FastAPI, C\#, Angular (TypeScript), AWS (Lambda, S3, Athena, Glue, CloudFormation, SAM, CloudWatch), Docker, Git, Linux, Apache Airflow, PySpark, MSSQL Server, Oracle, PostgreSQL
+
+\end{tabular}
+% \vspace{2mm}
+
+%==== Education ====%
+\header{Education}
+\textbf{University of Ottawa}\hfill Ottawa, ON\\
+Bachelor of Applied Science, Software Engineering \textit{GPA: 3.7/4.0} \hfill Sept 2020 - Dec 2024\\
+\vspace{2mm}
+
+%==== Experience ====%
+\header{Work experience}
+\vspace{1.5mm}
+
+\textbf{Data Engineer} \hfill May 2024 - Present\\
+\textit{Government Of Canada} \hfill Ottawa, ON\\
+\vspace{-2mm}
+\begin{itemize} \itemsep -4pt
+
+\item Designed logical and physical data models, defining schema and relationships for a centralized \textbf{Microsoft SQL Server} data warehouse supporting datasets of \textbf{20M+ records}.
+
+\item Built and maintained scalable \textbf{ETL pipelines} to extract data from \textbf{Oracle} databases, transform it using \textbf{SQL} and \textbf{Python}, and load it into semi-structured data in a JSON-based \textbf{data lake} layer and Microsoft SQL Server data warehouse, processing \textbf{5GB+} of data per pipeline run.
+
+\item Developed a reusable ETL validation framework using \textbf{Python} and \textbf{PySpark}, enabling automated validation of large datasets (\textbf{20M+ records}) across dev, uat, and prod environments, reducing data discrepancies by \textbf{60\%}.
+
+\item Implemented data quality checks, scoring logic, and anomaly detection workflows to proactively identify inconsistencies, improving data reliability and reducing production data issues by \textbf{50\%}.
+
+\item Orchestrated and scheduled data workflows using \textbf{Apache Airflow}, automating pipeline execution and dependency management, reducing manual intervention by \textbf{70\%} and improving pipeline reliability.
+
+\item Supported data migration projects, validating data quality and integrity during migration and improving consistency across systems.
+
+\item Developed and optimized complex \textbf{SQL queries and transformations}, reducing processing time for large-scale ETL jobs by \textbf{35 minutes}.
+
+\item Built \textbf{Power BI and Streamlit dashboards} to visualize pipeline performance, data quality metrics, and operational insights, enabling stakeholders to identify issues \textbf{2x faster} and support data-driven decision-making.
+
+\item Designed and delivered production \textbf{Python/FastAPI APIs} exposing electoral address data to client applications for Elections Canada's Electronic List of Electors (E-list) project, building backend services other teams rely on with documented interfaces and production support.
+
+\item Built full-stack features end to end: redesigned a high-traffic emergency alert website with \textbf{C\#} and \textbf{Angular} (TypeScript) used by over \textbf{20,000} students daily, and optimized its \textbf{C\#} REST APIs, cutting SQL query execution time for event data lookup by \textbf{30 \%}.
+
+\item Automated deployment and infrastructure for serverless data pipelines using \textbf{AWS SAM} and \textbf{CloudFormation} for infrastructure-as-code, containerized full-stack applications with \textbf{Docker} for reliable production deployments, and configured \textbf{AWS CloudWatch} and \textbf{Splunk} monitoring for observability; supports production systems on-call and reviews pull requests and data models for other data architects on the team.
+
+
+\end{itemize}
+
+% \item Collaborated with \textbf{Cloud, DevOps, and infrastructure teams} to troubleshoot data pipeline issues, optimize system performance, and support cloud-aligned data architecture initiatives.
+
+\textbf{Full Stack Developer Intern } \hfill September 2023 - April 2024\\
+\textit{University of Ottawa} \hfill Ottawa, ON\\
+\vspace{-2mm}
+\begin{itemize} \itemsep -4pt
+    \item Redesigned the University of Ottawa's emergency alert website with \textbf{C\#} and \textbf{Angular}, introducing a modern, interactive UI. Used by over \textbf{20,000} students daily.
+    %  \item Wrote 9 End to End tests using \textbf{Cypress}, and 25 unit tests using \textbf{Jasmine} for new APIs and features implemented on frontend and \textbf{NUnit} backend
+     \item Optimized existing \textbf{C\#} REST APIs by reducing \textbf{SQL} query execution time for event data lookup by \textbf{30 \%} and lines of code by \textbf{40 \%}
+    \item Revamped the event registration and admin webpages by using \textbf{Angular} material UI components to improve UI layout and reducing redundant lines of code by almost \textbf{50 \%}
+    % ITS Job uottawa drupal etc
+    % \item Lead a strategic overhaul of a high-traffic emergency system website serving \textbf{50,000 users}, utilizing Laravel to fortify backend processes and advance operational reliability during critical situations. Furthermore, execute tailored feature enhancements on a \textbf{Drupal-based} website, significantly improving the digital experience for \textbf{50,000 +} students.
+\end{itemize}
+
+
+\textbf{Data Engineer Intern} \hfill May 2023 - August 2023\\
+\textit{Trend Micro Inc.} \hfill Ottawa, ON\\
+\vspace{-2mm}
+\begin{itemize} \itemsep -4pt
+
+\item Designed and implemented a serverless data pipeline using \textbf{AWS Lambda, S3, and Athena}, leveraging \textbf{AWS SAM} and \textbf{CloudFormation} for infrastructure-as-code and automated deployment.
+
+\item Enabled scalable data querying workflows by integrating \textbf{Amazon Athena} to query data stored in S3, reducing manual data processing efforts.
+
+\item Configured \textbf{AWS CloudWatch} and \textbf{Splunk} monitoring to track pipeline performance, logs, and failures, enhancing observability and system reliability.
+
+
+\end{itemize}
+
+\textbf{Cloud Developer Intern} \hfill September 2022 - December 2022\\
+\textit{Trend Micro Inc.} \hfill Ottawa, ON\\
+\vspace{-2mm}
+\begin{itemize} \itemsep -4pt
+
+\item Developed serverless data processing pipelines using \textbf{AWS Lambda} to analyze client files, images, and code stored in \textbf{Amazon S3}, performing vulnerability scans using Anchore APIs and Grype.
+
+\item Implemented concurrent processing and robust error handling in \textbf{GoLang} using goroutines within Lambda functions, improving reliability and reducing data corruption in high-throughput environments.
+
+\item Enabled scalable data querying workflows by integrating \textbf{Amazon Athena} to query data stored in S3, reducing manual data processing efforts.
+
+
+% \item Developed and executed \textbf{integration tests (Docker)} and \textbf{unit tests} to validate Lambda functionality and ensure correctness of data processing workflows.
+
+\end{itemize}
+
+
+% \textbf{Cloud Developer Intern} \hfill May 2023 - August 2023\\
+% \textit{Trend Micro Inc.} \hfill Ottawa, ON\\
+% \vspace{-2mm}
+% \begin{itemize} \itemsep -4pt
+%     \item Utilized \textbf{AWS Lambda} to monitor client files, images and code uploaded to the cloud and scan for vulnerabilities using Anchore APIs and Grype
+%         \item Programmed robust error handling for \textbf{AWS Lambda} functions in GoLang using goroutines to ensure proper timeout and recovery, reducing data corruption and improving service reliability
+%	% \item Implemented \textbf{AWS Athena} to automate database creation and optimize data retrieval, resulting in a 30\% reduction in manual data processing time.
+% \end{itemize}
+
+% \textbf{Cloud Developer Intern} \hfill September 2022 - December 2022\\
+% \textit{Trend Micro Inc.} \hfill Ottawa, ON\\
+% \vspace{-2mm}
+% \begin{itemize} \itemsep -4pt
+%         \item Developed a serverless automation solution using \textbf{AWS Lambda, S3, and Athena crawlers} to trigger metadata updates on data changes, significantly reducing manual intervention and operational overhead
+%         \item Configured \textbf{Splunk} and \textbf{AWS CloudWatch} alarms for proactive monitoring of test logs and crashes, enhancing system reliability and reporting.
+%	% \item Used the \textbf{AWS Serverless} framework to add an invocation schedule to run the lambda 2 times every day which reduced the chances of the database getting filled with corrupted data
+%	\item Wrote \textbf{4 integration tests} using docker to test the AWS lambda and \textbf{3 unit tests} for the new features implemented
+% \end{itemize}
+
+\textbf{Full Stack Developer Intern} \hfill January 2022 - April 2022\\
+\textit{Applied Mind Inc.} \hfill Ottawa, ON\\
+\vspace{-2mm}
+\begin{itemize} \itemsep -4pt
+\item Containerized a full-stack application with \textbf{Docker} for reliable \textbf{production deployments}, and automated event detection by adding events to \textbf{PostgreSQL} using \textbf{Python} and \textbf{GraphQl}, reducing testing time by \textbf{10 seconds}.
+    % \item Added dynamic updates to the graph, map, and notification components using \textbf{Vue} dynamic update feature and \textbf{GraphQL} subscriptions which improved UX
+\end{itemize}
+
+\vspace{5mm}
+
+% \header{Projects}
+% \vspace{1mm}
+
+% % \vspace{-2mm}
+%  \begin{itemize} \itemsep -4pt
+% \end{itemize}
+
+% \vspace*{-1mm}
+
+% {\textbf{Delta Dispenser (Delta Hacks)}} {\sl Dart, Flutter, Firebase} \hfill \href{https://devpost.com/software/pill-dispenser-reminder-2000}{devpost.com/delta-dispenser}\\
+
+% % \vspace{-2mm}
+%  \begin{itemize} \itemsep -4pt
+%     \item Achieved \textbf{1st place}, DSC McMaster Challenge, for effectively using GCP out of a \textbf{300+} participant Hackathon 
+%     \item Produced mobile app with \textbf{Flutter} to help caretakers manage and track pills taken by each patient
+% \end{itemize}
+
+\vspace*{-1mm}
+
+% % \vspace{2mm}
+%  \begin{itemize} \itemsep -4pt
+% \end{itemize}
+% \vspace*{0mm}
+
+
+% \header{Extracurriculars}
+% \vspace{1mm}
+% \textbf{Electrical/Software Member} \hfill Guelph, ON\\
+% \textit{Guelph Robotics Team} \hfill Sep 2020 - Present\\
+% \vspace{-1mm}
+% \begin{itemize} \itemsep -4pt
+%	\item Redesigned schematic/PCB to include CANBUS control which increased reliability of the Mars Rover
+%	\item Completed embedded system exercise by using state machines to detect I/O signals without noise
+% \end{itemize}
+% \textbf{Sparbotics (F.I.R.S.T Robotics team)} \hfill Milton, ON\\
+% \textit{Analytics Lead} \hfill Oct 2019 - Jun 2020\\
+% \vspace{-1mm}
+% \begin{itemize} \itemsep 1pt
+%	\item Delegated 12 Scouters across 200+ matches to collect data on opposing Robots during competitions
+%	\item Created match strategies by analyzing data collected which led to us reaching finals and semi-finals
+% \end{itemize}
+% \vspace{2mm}
+% \header{Extracurriculars}
+
+% \text{Captain of Mens European footbal intramurrals team} \hfill December 2023\\
+
+% \text{Won the Best Use of Courier Award at TOHacks} \hfill May 2021\\
+
+% \text{Gold Medal at Halton Robotics Competition} \hfill Apr 2019\\
+
+% \vspace*{1mm}
+% \vspace{2mm}
+
+\vspace*{5mm}
+\end{document}
